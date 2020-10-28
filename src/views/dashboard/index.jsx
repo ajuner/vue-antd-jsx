@@ -9,7 +9,7 @@ export default defineComponent({
             state.count++
         }
         return () => <div>
-            <button class="btn" onClick={()=>{add()}} >{state.count}</button>
+            <button class="btn" onClick={add} >{state.count}</button>
         </div>
     }
 })

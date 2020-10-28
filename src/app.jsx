@@ -1,5 +1,3 @@
 export default () => (
-    <div>
-        <router-view/>
-    </div>
+    <router-view/>
 )

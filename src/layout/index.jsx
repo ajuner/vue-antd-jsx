@@ -9,11 +9,11 @@ import './index.scss'
 const AppLayout = defineComponent({
     setup() {
         const renderMain = () => {
-            return <Layout id="components-layout-demo-side" style="min-height: 100vh">
+            return <Layout class="app-layout">
                 <Sider />
                 <Layout>
                     <Header/>
-                    <Layout.Content style="margin:0 16px">
+                    <Layout.Content class="app-content">
                         <Breadcrumb/>
                         <router-view></router-view>
                     </Layout.Content>
