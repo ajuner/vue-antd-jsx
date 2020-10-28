@@ -63,7 +63,9 @@ const actions = {
   logout({ commit }) {
     return new Promise((resolve) => {
       //request logout
+      location.reload()
       commit('SET_TOKEN', '')
+      commit('SET_USERINFO', {})
       removeToken()
       resolve()
     })

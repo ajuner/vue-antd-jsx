@@ -26,9 +26,10 @@ router.beforeEach((to, from, next)=>{
                     store.dispatch('user/getUserInfo').then(() => {
                         //filter routes
                         router.addRoute(asyncRoutes)
+                        next()
                         // router.addRoute(res.menu)
                     })
-                    next()
+                    
                 }
                 else {
                     next()

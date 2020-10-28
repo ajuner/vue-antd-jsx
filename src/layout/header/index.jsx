@@ -1,14 +1,14 @@
 import { Layout, Menu, Dropdown, Modal } from 'ant-design-vue'
 import { useStore } from 'vuex'
-import { useRouter } from 'vue-router' 
 import { reactive, defineComponent, createVNode } from 'vue'
 import { DownOutlined, ExclamationCircleOutlined } from '@ant-design/icons-vue';
 const Header = defineComponent({
     setup() {
 
         const store = useStore()
-        const router = useRouter()
+
         const userInfo = reactive(store.state.user.userInfo)
+        
         const menuClick = ({key}) => {
             switch(key){
                 case 'quit':
@@ -27,7 +27,6 @@ const Header = defineComponent({
                         setTimeout(()=>{
                             store.dispatch('user/logout')
                             resolve()
-                            router.push({path: '/login'})
                         }, 1000);
                     })
                 }
