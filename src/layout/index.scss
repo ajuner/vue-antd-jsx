@@ -1,8 +1,18 @@
-#components-layout-demo-side {
+.app-layout {
     display: flex;
+    height: 100%;
     .logo {
         height: 32px;
         background: rgba(255, 255, 255, 0.2);
         margin: 16px;
+    }
+    .header-user {
+        background: #fff; 
+        padding: 0 20px;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .app-content {
+        margin:0 16px;
     }
 }

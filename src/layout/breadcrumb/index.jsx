@@ -12,7 +12,7 @@ export default defineComponent({
         }
         return () => <Breadcrumb>
             {
-                route.matched.map(item=> {
+                route.matched.map((item) => {
                     return renderBreadItem(item.name)
                 })
             }
