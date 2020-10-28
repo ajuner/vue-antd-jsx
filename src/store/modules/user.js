@@ -33,8 +33,30 @@ const actions = {
   getUserInfo({ commit }) {
     return new Promise((resolve) => {
       //request login
-      commit('SET_USERINFO', {username: 'admin', password: '123456', name: 'Admin'})
-      resolve()
+      const userInfo = {
+        username: 'admin', 
+        password: '123456', 
+        name: 'Admin',
+        menu: [{
+          name: 'menu',
+          children: [
+            {
+              name: 'dashboard',
+              children:[]
+            },
+            {
+              name: 'tool',
+              children:[]
+            },
+            {
+              name: 'table',
+              children:[]
+            }
+          ]
+        }]
+      }
+      commit('SET_USERINFO', userInfo)
+      resolve(userInfo)
     })
   },
 

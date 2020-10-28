@@ -1,6 +1,7 @@
 import router from './router'
 import { getToken } from '@/utils/auth'
 import store from './store'
+import asyncRoutes from './router/asyncRoutes'
 
 
 const whiteList = ['/login']
@@ -22,7 +23,11 @@ router.beforeEach((to, from, next)=>{
             if(token) {
                 if(JSON.stringify(userInfo) == "{}") {
                     // userInfo request
-                    store.dispatch('user/getUserInfo')
+                    store.dispatch('user/getUserInfo').then(() => {
+                        //filter routes
+                        router.addRoute(asyncRoutes)
+                        // router.addRoute(res.menu)
+                    })
                     next()
                 }
                 else {

@@ -1,19 +1,37 @@
 import { Layout, Menu } from 'ant-design-vue'
 
-import { defineComponent, onMounted, reactive } from 'vue'
+import { defineComponent, onMounted, reactive, computed } from 'vue'
 
 import { AppstoreOutlined, MenuOutlined } from '@ant-design/icons-vue'
 
+import { useStore } from 'vuex'
+
+import { useRoute, useRouter } from 'vue-router'
+
 const Sider = defineComponent({
     setup() {
+
+        const store = useStore()
+
+        const router = useRouter()
+
+        const route = useRoute()
+
         const data = reactive({
             menuList: [],
-            selectedKeys: ['1'],
+            openKeys: computed(() => {
+                return route.matched.map( item => {
+                    return item.name
+                })
+            }),
+            selectedKeys: computed(()=>{
+                return [route.name]
+            }),
             collapsed: false
         })
 
         const renderMenu = () => {
-            return <Menu theme="dark" v-model={data.selectedKeys} mode="inline">
+            return <Menu theme="dark" openKeys={data.openKeys} selectedKeys={data.selectedKeys} mode="inline">
                     {
                         data.menuList.map((menuItem) => {
                             return menuItem.children.length===0?renderMenuItem(menuItem):renderSubMenu(menuItem)
@@ -30,17 +48,17 @@ const Sider = defineComponent({
         }
 
         const renderMenuItem = (i) => {
-            return <Menu.Item>
+            return <Menu.Item key={i.name} onClick={()=>{linkTo(i.name)}}>
                 <AppstoreOutlined />
-                <span>{i.label}</span>
+                <span>{i.name}</span>
             </Menu.Item>
         }
 
         const renderSubMenu = (i) => {
             const slots = {
-                title: () => <span><MenuOutlined /><span>{i.label}</span></span>
+                title: () => <span><MenuOutlined /><span>{i.name}</span></span>
             }
-            return <Menu.SubMenu v-slots={slots}>
+            return <Menu.SubMenu key={i.name} v-slots={slots}>
                 {
                     i.children.map((menuItem)=>{
                         return renderMenuItem(menuItem)
@@ -49,41 +67,13 @@ const Sider = defineComponent({
             </Menu.SubMenu>
         }
 
+        const linkTo = (name) => {
+            router.push({name: name})
+        }
+
         onMounted(()=>{
             setTimeout(()=>{
-                data.menuList = [
-                    {
-                        label: 'Option 1',
-                        children: []
-                    },
-                    {
-                        label: 'Option 2',
-                        children: []
-                    },
-                    {
-                        label: 'User',
-                        children: [{
-                            label: 'Tom',
-                            children: [],
-                        },{
-                            label: 'Bill',
-                            children: [],
-                        },{
-                            label: 'Alex',
-                            children: [],
-                        }]
-                    },
-                    {
-                        label: 'Team',
-                        children: [{
-                            label: 'Team 1',
-                            children: []
-                        },{
-                            label: 'Team 2',
-                            children: []
-                        }]
-                    }
-                ]
+                data.menuList = store.state.user.userInfo.menu
             },100)
         })
         return () => renderLayout()
