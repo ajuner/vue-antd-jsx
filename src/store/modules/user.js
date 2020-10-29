@@ -53,6 +53,18 @@ const actions = {
               children:[]
             }
           ]
+        },{
+          name: 'nothing',
+          children: [
+            {
+              name: 'nothing-1',
+              children:[]
+            },
+            {
+              name: 'nothing-2',
+              children:[]
+            },
+          ]
         }]
       }
       commit('SET_USERINFO', userInfo)
