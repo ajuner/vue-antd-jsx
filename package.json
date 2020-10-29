@@ -26,7 +26,10 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0-0",
     "sass": "^1.26.5",
-    "sass-loader": "^8.0.2"
+    "sass-loader": "^8.0.2",
+    "less": "^2.7.3",
+    "less-loader": "^4.1.0",
+    "babel-plugin-import": "^1.13.1"
   },
   "eslintConfig": {
     "root": true,

@@ -29,9 +29,8 @@ module.exports = {
       scss: {
         prependData: `
         @import "~@/styles/index.scss";
-        @import "./index.scss";
         `
-      },
+      }
     }
   },
   configureWebpack: {
