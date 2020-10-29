@@ -31,7 +31,7 @@ const Sider = defineComponent({
         })
 
         const renderMenu = () => {
-            return <Menu theme="dark" openKeys={data.openKeys} selectedKeys={data.selectedKeys} mode="inline">
+            return <Menu theme="dark" defaultOpenKeys={data.openKeys} selectedKeys={data.selectedKeys} mode="inline">
                     {
                         data.menuList.map((menuItem) => {
                             return menuItem.children.length===0?renderMenuItem(menuItem):renderSubMenu(menuItem)
