@@ -9,6 +9,7 @@ const whiteList = ['/login']
 router.beforeEach((to, from, next)=>{
     const token = getToken()
     const userInfo = store.state.user.userInfo
+    document.title = process.env.VUE_APP_TITLE + '-' + to.meta.title 
     if(to.path === '/login') {
         if(token) {
             console.log('already login')
