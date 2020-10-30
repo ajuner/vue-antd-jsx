@@ -1,6 +1,6 @@
 import { Layout, Menu, Dropdown, Modal } from 'ant-design-vue'
 import { useStore } from 'vuex'
-import { reactive, defineComponent, createVNode } from 'vue'
+import { reactive, defineComponent, createVNode, ref } from 'vue'
 import { DownOutlined, ExclamationCircleOutlined } from '@ant-design/icons-vue';
 const Header = defineComponent({
     setup() {
@@ -21,12 +21,14 @@ const Header = defineComponent({
             Modal.confirm({
                 title: 'warning',
                 icon: createVNode(ExclamationCircleOutlined),
-                content: `quit?`,
+                content: 'quit',
                 onOk() {
+                    // request logOut 
                     return new Promise((resolve) => {
                         setTimeout(()=>{
                             store.dispatch('user/logout')
                             resolve()
+                            location.reload()
                         }, 1000);
                     })
                 }
