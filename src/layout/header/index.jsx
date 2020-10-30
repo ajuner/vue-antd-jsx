@@ -23,10 +23,11 @@ const Header = defineComponent({
                 icon: createVNode(ExclamationCircleOutlined),
                 content: 'quit',
                 onOk() {
-                    new Promise(async (resolve, reject) => {
-                        await store.dispatch('user/logout')
-                        resolve()
-                        location.reload()
+                    new Promise((resolve) => {
+                        store.dispatch('user/logout').then(()=>{
+                            resolve()
+                            location.reload()
+                        })
                     })
                 }
             })
