@@ -21,13 +21,13 @@ const Header = defineComponent({
             Modal.confirm({
                 title: 'warning',
                 icon: createVNode(ExclamationCircleOutlined),
-                content: `quit?`,
+                content: 'quit',
                 onOk() {
-                    return new Promise((resolve) => {
-                        setTimeout(()=>{
-                            store.dispatch('user/logout')
+                    new Promise((resolve) => {
+                        store.dispatch('user/logout').then(()=>{
                             resolve()
-                        }, 1000);
+                            location.reload()
+                        })
                     })
                 }
             })
