@@ -30,6 +30,10 @@ Mock.mock('user/info', 'post', () => {
                 {
                   name: 'table',
                   children:[]
+                },
+                {
+                  name: 'form',
+                  children:[]
                 }
               ]
             },{

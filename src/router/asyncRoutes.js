@@ -1,7 +1,7 @@
 import AppLayout from '@/layout/index'
 
 const asyncRoutes = [{
-  path: '/',
+  path: '/main',
   name: 'menu',
   redirect: '/dashboard',
   component: AppLayout,
@@ -24,6 +24,12 @@ const asyncRoutes = [{
       name: 'table',
       meta: { title: 'Table'},
       component: () => import('@/views/table/index')
+    },
+    {
+      path: '/form',
+      name: 'form',
+      meta: { title: 'Form'},
+      component: () => import('@/views/form/index')
     }
   ]
 },{

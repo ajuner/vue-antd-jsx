@@ -56,7 +56,7 @@ export default defineComponent({
         const login = () => {
             validate().then(()=>{
                 store.dispatch('user/login', toRaw(userRef)).then(()=>{
-                    router.push('/')
+                    router.push('/main')
                 })
             })
         }

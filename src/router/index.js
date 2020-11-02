@@ -1,8 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import asyncRoutes from './asyncRoutes'
+// import asyncRoutes from './asyncRoutes'
 
-const defaultRoutes = [
+const routes = [
+  {
+    path: '/', 
+    redirect: '/login'
+  },
   {
     path: '/login',
     name: 'login',
@@ -17,7 +21,7 @@ const defaultRoutes = [
   }
 ]
 
-const routes = defaultRoutes.concat(asyncRoutes)
+// const routes = defaultRoutes.concat(asyncRoutes)
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
