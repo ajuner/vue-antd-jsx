@@ -1,24 +1,20 @@
-import { defineComponent, reactive, ref, onMounted } from 'vue'
+import { defineComponent, ref } from 'vue'
+import { Input } from 'ant-design-vue'
 import './index.scss'
-import { postData } from '@/utils/request'
 export default defineComponent({
     setup() {
 
-        const data = reactive({
-            list:[]
-        })
-
         const message = ref('home')
 
-        const renderPage = () => {
-            return <h1>{message.value}</h1>
+        const getMessage = () => {
+            console.log(message.value)
         }
 
-        onMounted(async ()=>{
-            const res = await postData('/mock/list')
-            data.list  = res.list
-        })
-
-        return () => <>{renderPage()}</>
+        return () => <>
+            <h1> v-model 未绑定的bug已经提给ant design vue的作者了 这个大需求应该会改</h1>
+            <Input v-model={message.value}/>
+            <input v-model={message.value}/>
+            <button onClick={getMessage}>button</button>
+        </>
     }
 })
