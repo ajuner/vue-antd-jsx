@@ -30,7 +30,7 @@ router.beforeEach(async (to, from, next)=>{
                         menuRoutes.forEach(item=> {
                             router.addRoute(item)
                         })
-                        next('/main')
+                        next(to.path)
                     }
                 }
                 else {

@@ -12,7 +12,23 @@
         display: flex;
         justify-content: flex-end;
     }
-    .app-content {
-        margin:0 16px;
+    .app-breadcrumb {
+        margin: 4px 16px;
     }
+    .app-content {
+        margin: 0 16px;
+        height: 100%;
+        background-color: #fff;
+        padding: 8px;
+        border-radius: 4px;
+    }
+}
+
+.slide-fade-enter-active, .slide-fade-leave-active {
+    transition: all .3s ease-out;
+}
+  
+.slide-fade-enter-from,.slide-fade-leave-to {
+    transform: translateX(20px);
+    opacity: 0;
 }
