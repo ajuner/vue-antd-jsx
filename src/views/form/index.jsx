@@ -28,10 +28,10 @@ export default defineComponent({
         const renderForm = () => {
             return <Form model={state.form} labelCol={state.labelCol} wrapperCol={state.wrapperCol}>
                     <Form.Item label="Activity name">
-                        <Input v-model={state.form.name}/>
+                        <Input v-model={[state.form.name, 'value']}/>
                     </Form.Item>
                     <Form.Item label="Activity zone">
-                        <Select v-model={state.form.region} placeholder="please select your zone">
+                        <Select v-model={[state.form.region, 'value']} placeholder="please select your zone">
                             <Select.Option value="shanghai">
                                 Zone one
                             </Select.Option>
@@ -41,13 +41,13 @@ export default defineComponent({
                         </Select>
                     </Form.Item>
                     <Form.Item label="Activity time">
-                        <DatePicker class="w100" v-model={state.form.date1} show-time type="date" placeholder="pick a date"/>
+                        <DatePicker class="w100" v-model={[state.form.date1, 'value']} show-time type="date" placeholder="pick a date"/>
                     </Form.Item>
                     <Form.Item label="Instant delivery">
-                        <Switch v-model={state.form.delivery} />
+                        <Switch v-model={[state.form.delivery, 'checked']} />
                     </Form.Item>
                     <Form.Item label="Activity type">
-                        <Checkbox.Group v-model={state.form.type}>
+                        <Checkbox.Group v-model={[state.form.type, 'value']}>
                             <Checkbox value="1" name="type">
                                 Online
                             </Checkbox>
@@ -60,7 +60,7 @@ export default defineComponent({
                         </Checkbox.Group>
                     </Form.Item>
                     <Form.Item label="Resources">
-                        <Radio.Group v-model={state.form.resource}>
+                        <Radio.Group v-model={[state.form.resource, 'checked']}>
                             <Radio value="1">
                                 Sponsor
                             </Radio>
@@ -70,7 +70,7 @@ export default defineComponent({
                         </Radio.Group>
                     </Form.Item>
                     <Form.Item label="Activity form">
-                        <Input v-model={state.form.desc} type="textarea"/>
+                        <Input v-model={[state.form.desc, 'value']} type="textarea"/>
                     </Form.Item>
                     <Form.Item>
                         <Button type="primary" onClick={()=>{createForm()}}>
