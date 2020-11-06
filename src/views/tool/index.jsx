@@ -21,6 +21,7 @@ export default defineComponent({
             return <div>
                 <h1>slot，emit</h1>
                 <Custom v-model={message.value} v-slots={slots} onGetprops={getProps}></Custom>
+
             </div>
         }
         return () => <>{renderCustom()}</>
