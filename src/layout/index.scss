@@ -18,6 +18,8 @@
     .app-content {
         margin: 0 16px;
         height: 100%;
+        max-height: calc(100vh - 130px);
+        overflow-y: auto;
         background-color: #fff;
         padding: 8px;
         border-radius: 4px;
