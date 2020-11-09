@@ -1,8 +1,11 @@
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted, reactive } from 'vue';
 
 import { SmileOutlined, DownOutlined } from '@ant-design/icons-vue';
 
-import { Table, Tag, Button, Divider } from 'ant-design-vue'
+import { Table, Tag, Button, Divider } from 'ant-design-vue';
+
+import { postData } from '@/utils/request';
+
 export default defineComponent({
     setup() {
 
@@ -35,29 +38,9 @@ export default defineComponent({
             },
         ];
 
-        const data = [
-            {
-              key: '1',
-              name: 'John Brown',
-              age: 32,
-              address: 'New York No. 1 Lake Park',
-              tags: ['nice', 'developer'],
-            },
-            {
-              key: '2',
-              name: 'Jim Green',
-              age: 42,
-              address: 'London No. 1 Lake Park',
-              tags: ['loser'],
-            },
-            {
-              key: '3',
-              name: 'Joe Black',
-              age: 32,
-              address: 'Sidney No. 1 Lake Park',
-              tags: ['cool', 'teacher'],
-            },
-        ]
+        const data = reactive({
+          tableList: []
+        })
 
         const renderTable = () => {
             const slots = {
@@ -78,8 +61,13 @@ export default defineComponent({
                     <a class="ant-dropdown-link"> More actions <DownOutlined/> </a>
                 </span>
             }
-            return <Table columns={columns} dataSource={data} v-slots={slots}></Table>
+            return <Table columns={columns} dataSource={data.tableList} v-slots={slots}></Table>
         }
+
+         onMounted(async ()=> {
+          const res = await postData('/mock/list')
+          data.tableList = res.list
+        })
 
         return () => <>{renderTable()}</>
     }
