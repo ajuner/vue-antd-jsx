@@ -1,24 +1,13 @@
-# vue-antd
+# vue-antd-jsx
 
-## Project setup
+### 安装
+
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+### 介绍 
 
-### Compiles and minifies for production
-```
-yarn build
-```
+由jsx代替vue文件，关于vue模板语法的基本用法在页面中都有
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+具体都可以在[vuejs/jsx-next](https://github.com/vuejs/jsx-next)中找到
