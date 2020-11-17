@@ -34,6 +34,10 @@ Mock.mock('user/info', 'post', () => {
                 {
                   name: 'form',
                   children:[]
+                },
+                {
+                  name: 'demo',
+                  childeren: []
                 }
               ]
             },{
