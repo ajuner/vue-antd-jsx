@@ -30,6 +30,12 @@ const asyncRoutes = [{
       name: 'form',
       meta: { title: 'Form'},
       component: () => import('@/views/form/index')
+    },
+    {
+      path: '/demo',
+      name: 'demo',
+      meta: { title: 'Demo'},
+      component: () => import('@/views/demo/index')
     }
   ]
 },{
