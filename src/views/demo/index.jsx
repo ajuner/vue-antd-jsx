@@ -1,16 +1,19 @@
-import { Calendar } from 'ant-design-vue'
+import { Calendar, Input } from 'ant-design-vue'
 import { defineComponent, reactive } from 'vue'
 
 export default defineComponent({
     setup() {
 
-        const { getCanendarVal, renderCalendar } = CalendarModel({value: '', full: false})
+        const { renderCalendar } = CalendarModel({value: '', full: false})
 
-        const { renderInput } = InputModel()
+        const InputJSX1 = InputModel(1)
+
+        const InputJSX2 = InputModel(2)
 
         const renderDemo = () => {
             return <div>
-                {renderInput(getCanendarVal)}
+                {InputJSX1.renderInput()}
+                {InputJSX2.renderInput()}
                 {renderCalendar()}
             </div>
         }
@@ -43,14 +46,14 @@ function CalendarModel({value, full}) {
     }
 }
 
-function InputModel() {
+function InputModel(val) {
     const inputState = reactive({
-        val: '1',
+        val: val,
     })
 
-    const renderInput = (call) => {
+    const renderInput = () => {
         return (
-            call?.()?<Input v-model={[inputState.val, 'value']}></Input>:<span>{inputState.val}</span>
+            <Input v-model={[inputState.val, 'value']}></Input>
         )
     }
 
