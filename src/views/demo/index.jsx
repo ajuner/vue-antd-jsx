@@ -6,11 +6,14 @@ export default defineComponent({
 
         const { renderCalendar } = CalendarModel({value: '', full: false})
 
-        const { renderInput } = InputModel()
+        const InputJSX1 = InputModel(1)
+
+        const InputJSX2 = InputModel(2)
 
         const renderDemo = () => {
             return <div>
-                {renderInput()}
+                {InputJSX1.renderInput()}
+                {InputJSX2.renderInput()}
                 {renderCalendar()}
             </div>
         }
@@ -43,9 +46,9 @@ function CalendarModel({value, full}) {
     }
 }
 
-function InputModel() {
+function InputModel(val) {
     const inputState = reactive({
-        val: '1',
+        val: val,
     })
 
     const renderInput = () => {
