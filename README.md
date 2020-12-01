@@ -1,5 +1,8 @@
 # vue-antd-jsx
 
+vue-antd
+jsx简单解决方案
+
 ## 安装
 
 ```
@@ -8,7 +11,13 @@ yarn install
 
 ## 介绍 
 
-由jsx代替vue文件，关于vue模板语法的基本用法在页面中都有
+![image](https://github.com/ajuner/vue-antd-jsx/blob/master/public/1606787092.jpg)
+![image](https://github.com/ajuner/vue-antd-jsx/blob/master/public/1606787177.jpg)
+
+
+由jsx代替vue文件，关于jsx语法的基本用法在页面中都有
+
+对函数式组件更加友好
 
 具体都可以在[vuejs/jsx-next](https://github.com/vuejs/jsx-next)中找到
 
