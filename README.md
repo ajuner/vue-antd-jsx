@@ -1,6 +1,6 @@
 # vue-antd-jsx
 
-vue-antd
+vue3 + ant-design-vue2
 jsx简单解决方案
 
 ## 安装
